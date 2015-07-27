@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
     'mysql': {
-        'engine': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'myproject',
         'HOST': '127.0.0.1',
         'PORT': '3306',
@@ -91,6 +91,7 @@ DATABASES = {
     }
 }
 
+DATABASE_ROUTERS = ['myproject.config.cache_router.CacheRouter']
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -114,3 +115,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "pages/static/"),
 )
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': "cache_table"
+    }
+}
