@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+#
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -119,6 +119,10 @@ STATICFILES_DIRS = (
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': "cache_table"
+        'LOCATION': "api_cache_table"
+    },
+    'apps': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': "apps_cache_table"
     }
 }
