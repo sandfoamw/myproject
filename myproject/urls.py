@@ -19,6 +19,6 @@ from pages.dashboard.views import Index, Index2
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', Index.as_view(), name="INDEX"),
+    url(r'^$', Index, name="INDEX"),
     url(r'^index2/$', Index2.as_view(), name="INDEX2"),
 ]
