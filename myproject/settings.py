@@ -53,9 +53,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
-CACHE_MIDDLEWARE_ALIAS = "default"
+# CACHE_MIDDLEWARE_ALIAS = "default"
 CACHE_MIDDLEWARE_SECONDS = 3600
-CACHE_MIDDLEWARE_KEY_PREFIX = "PageCache"
+CACHE_MIDDLEWARE_KEY_PREFIX = "SiteCache"
 
 ROOT_URLCONF = 'myproject.urls'
 
