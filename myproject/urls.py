@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from pages.dashboard.views import Index, Index2
+from django.views.decorators.cache import cache_page
+from pages.dashboard.views import Index1, Index2
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', Index, name="INDEX"),
-    url(r'^index2/$', Index2.as_view(), name="INDEX2"),
+    url(r'^$', Index1, name="INDEX"),
+    url(r'^index2/$', cache_page(60 * 15, key_prefix='index2')(Index2.as_view()), name="INDEX2"),
 ]

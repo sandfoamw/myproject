@@ -16,7 +16,7 @@ menus = {
 
 @require_GET
 @cache_page(60 * 15, key_prefix='index1')
-def Index(request):
+def Index1(request):
     return TemplateResponse(request, 'dashboard/index.html', context=menus)
 
 
